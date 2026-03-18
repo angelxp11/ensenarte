@@ -338,14 +338,27 @@ body {
 }
 
 .landingpage-slide img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  min-width: 100%;
   height: 100%;
+  min-width: 100%;
   min-height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
   opacity: 1;
   animation: imageShow 0.5s ease-out forwards;
+}
+
+/* iOS Safari: forzar recálculo correcto del tamaño dentro de aspect-ratio */
+@supports (-webkit-overflow-scrolling: touch) {
+  .landingpage-slide img {
+    min-width: 100% !important;
+    min-height: 100% !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
 }
 
 .landingpage-slide-active img {

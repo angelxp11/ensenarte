@@ -8,7 +8,8 @@ function Navbar() {
 
   const items = [
     { label: 'Inicio', href: '#' },
-    { label: 'CAMPUS VIRUAL', href: 'https://ensenarteonline.com.co/moodle/login/index.php' },
+    { label: 'Campus Virtual', href: 'https://ensenarteonline.com.co/moodle/login/index.php' },
+    { label: 'Cartera', href: 'https://angelxp11.github.io/cartera/' },
   ];
 
   return (
@@ -23,7 +24,7 @@ function Navbar() {
       {/* Navegación - visible en landscape */}
       <nav className="navbar-links-desktop" aria-label="Navegación principal">
         {items.map((item) => (
-          <a key={item.href} className="navbar-item" href={item.href} onClick={(e) => e.preventDefault()}>
+          <a key={item.href} className="navbar-item" href={item.href}>
             {item.label}
           </a>
         ))}
@@ -49,7 +50,7 @@ function Navbar() {
 
         <nav className="navbar-links" aria-label="Navegación principal">
           {items.map((item) => (
-            <a key={item.href} className="navbar-item" href={item.href} onClick={(e) => { e.preventDefault(); setMenuOpen(false); }}>
+            <a key={item.href} className="navbar-item" href={item.href} onClick={() => setMenuOpen(false)}>
               {item.label}
             </a>
           ))}
