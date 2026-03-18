@@ -1,0 +1,8 @@
+.site-footer {background: #0a6f7a; color: #f1f1f1; padding: 2rem 1rem;}
+.footer-container {max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.2rem;}
+.footer-col h4 {font-size: 1.1rem; margin-bottom: 0.7rem;}
+.footer-col p, .footer-col li, .footer-col a {font-size: 0.95rem; color: #ebf5fb;}
+.footer-col a {text-decoration: none; }
+.footer-col a:hover {color: #fff;}
+.footer-col ul {padding:0; list-style:none; margin:0;}
+.footer-bottom {text-align:center; margin-top:1.2rem; border-top:1px solid rgba(255,255,255,0.2); padding-top:0.8rem; font-size:0.9rem;}

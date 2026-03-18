@@ -1,0 +1,9 @@
+.testimonials-section {padding: 3rem 2rem; background: linear-gradient(135deg, rgba(10,111,122,0.03) 0%, rgba(34,58,68,0.08) 100%);}
+.testimonials-container {max-width: 1000px; margin: 0 auto;}
+.testimonials-container h2 {font-size: 2.2rem; font-weight:700; color: var(--deco-1); text-align:center; margin-bottom:0.5rem;}
+.testimonials-container p {text-align:center; color: var(--text-color); opacity:0.88; margin-bottom:1.5rem;}
+.testimonial-grid {display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 1rem;}
+.testimonial-card {padding: 1rem 1.2rem; border-radius: 14px; background: rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14); box-shadow:0 8px 18px rgba(0,0,0,0.08);}
+.testimonial-quote {font-size:1rem; line-height:1.6; color: var(--text-color); margin-bottom:0.8rem;}
+.testimonial-card h4 {margin:0; color: var(--deco-1); font-size:1.05rem;}
+.testimonial-role {color: rgba(255,255,255,0.7); font-size:0.9rem; margin: 0.2rem 0 0;}
