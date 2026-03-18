@@ -8,6 +8,7 @@ function Navbar() {
 
   const items = [
     { label: 'Inicio', href: '#' },
+    { label: 'CAMPUS VIRUAL', href: 'https://ensenarteonline.com.co/moodle/login/index.php' },
   ];
 
   return (

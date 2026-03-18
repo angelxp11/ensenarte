@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './landingpage.css';
 import Ventajas from './ventajas/ventajas';
 import Preguntas from './preguntasfrecuentes/preguntas';
+import imagenfondo1 from '../images/imagenfondo1.jpg';
+import imagenfondo2 from '../images/imagenfondo2.jpg';
 import Testimonios from './testimonios/testimonios';
 import Noticias from './noticias/noticias';
 import Footer from '../footer/footer';
@@ -14,14 +16,14 @@ function LandingPage() {
   // Array de imágenes con contenido - Reemplaza con tus imágenes de 1920x960 px
   const slides = [
     {
-      image: require('../images/imagenfondo1.jpg'),
+      image: imagenfondo1,
       title: 'Aprende Arte',
       description: 'Descubre técnicas innovadoras y desarrolla tu creatividad con nuestros cursos especializados en arte.',
       buttonText: 'Explorar Cursos',
       buttonLink: '#cursos'
     },
     {
-      image: require('../images/imagenfondo2.jpg'),
+      image: imagenfondo2,
       title: 'Crea sin Límites',
       description: 'Únete a una comunidad de artistas y comparte tus obras maestras con el mundo.',
       buttonText: 'Conocer Comunidad',
