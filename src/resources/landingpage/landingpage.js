@@ -24,7 +24,7 @@ function LandingPage() {
     },
     {
       image: imagenfondo2,
-      title: 'Crea sin Límites version',
+      title: 'Crea sin Límites versionsss',
       description: 'Únete a una comunidad de artistas y comparte tus obras maestras con el mundo.',
       buttonText: 'Conocer Comunidad',
       buttonLink: '#comunidad'
