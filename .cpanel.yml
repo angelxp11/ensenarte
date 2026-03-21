@@ -2,6 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/ensenart/public_html
-    - /bin/npm install
-    - /bin/npm run build
     - /bin/cp -R build/* $DEPLOYPATH
