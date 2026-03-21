@@ -17,7 +17,7 @@ function LandingPage() {
   const slides = [
     {
       image: imagenfondo1,
-      title: 'Aprende A',
+      title: 'Aprende As',
       description: 'Descubre técnicas innovadoras y desarrolla tu creatividad con nuestros cursos especializados en arte.',
       buttonText: 'Explorar Cursos',
       buttonLink: '#cursos'
