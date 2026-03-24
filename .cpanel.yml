@@ -1,1 +1,7 @@
-a
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/ensenart/landingpage
+    - /bin/npm install
+    - /bin/npm run build
+    - /bin/cp -R build/* $DEPLOYPATH
