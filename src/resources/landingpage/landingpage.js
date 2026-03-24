@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import './landingpage.css';
 import Ventajas from './ventajas/ventajas';
 import Preguntas from './preguntasfrecuentes/preguntas';
+import Formulario from './formulario/formulario';
 import imagenfondo1 from '../images/imagenfondo1.jpg';
 import imagenfondo2 from '../images/imagenfondo2.jpg';
 import Testimonios from './testimonios/testimonios';
 import Noticias from './noticias/noticias';
 import Footer from '../footer/footer';
 
-function LandingPage() {
+function LandingPage({ openFormulario, onSetOpenFormulario }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [exitingSlide, setExitingSlide] = useState(null);
   const [nextSlide, setNextSlide] = useState(null);
@@ -24,7 +25,7 @@ function LandingPage() {
     },
     {
       image: imagenfondo2,
-      title: 'Crea sin Límites versionsss',
+      title: 'Crea sin Límites',
       description: 'Únete a una comunidad de artistas y comparte tus obras maestras con el mundo.',
       buttonText: 'Conocer Comunidad',
       buttonLink: '#comunidad'
@@ -191,6 +192,9 @@ function LandingPage() {
 
       {/* Sección de ventajas */}
       <Ventajas />
+
+      {/* Sección de obtener más información */}
+      <Formulario openForm={openFormulario} onClose={() => onSetOpenFormulario(false)} />
 
       {/* Preguntas frecuentes */}
       <div id="cursos" />

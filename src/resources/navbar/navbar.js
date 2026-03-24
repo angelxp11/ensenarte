@@ -3,7 +3,7 @@ import { TiThMenu } from 'react-icons/ti';
 import './navbar.css';
 import logo from '../images/logosinalto.png';
 
-function Navbar() {
+function Navbar({ onOpenFormulario }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const items = [
@@ -28,6 +28,9 @@ function Navbar() {
             {item.label}
           </a>
         ))}
+        <button className="navbar-item navbar-cta" type="button" onClick={() => onOpenFormulario?.()}>
+          Más info
+        </button>
       </nav>
 
       {/* Botón toggle - visible en portrait */}
@@ -54,6 +57,9 @@ function Navbar() {
               {item.label}
             </a>
           ))}
+          <button className="navbar-item navbar-cta" type="button" onClick={() => { setMenuOpen(false); onOpenFormulario?.(); }}>
+            Más info
+          </button>
         </nav>
       </div>
 

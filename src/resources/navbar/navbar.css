@@ -122,6 +122,24 @@
   transform: translateY(-2px);
 }
 
+.navbar-cta {
+  margin-left: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  background: linear-gradient(120deg, rgba(247, 151, 31, 0.9), rgba(238, 108, 70, 0.9));
+  border: 1px solid rgba(255, 179, 118, 0.8);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(255, 146, 70, 0.35);
+  transition: all 0.2s ease;
+}
+
+.navbar-cta:hover {
+  transform: translateY(-2px) scale(1.03);
+  background: linear-gradient(120deg, rgba(255, 164, 56, 0.95), rgba(245, 112, 60, 0.95));
+}
+
+
 /* Mobile menu items */
 .navbar-links .navbar-item {
   font-size: 1.05rem;

@@ -8,6 +8,7 @@ import reportWebVitals from './reportWebVitals';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [openFormulario, setOpenFormulario] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => setIsLoading(false), 2000); // Simula una carga de 2 segundos
@@ -20,8 +21,8 @@ function App() {
         <Carga />
       ) : (
         <>
-          <Navbar />
-          <LandingPage />
+          <Navbar onOpenFormulario={() => setOpenFormulario(true)} />
+          <LandingPage openFormulario={openFormulario} onSetOpenFormulario={setOpenFormulario} />
         </>
       )}
     </>
