@@ -96,7 +96,6 @@ const Formulario = ({ openForm = false, onClose = () => {} }) => {
       nombre: nombreTrim,
       correo: correo.trim(),
       telefono: telefonoRaw,
-      telefonoVisual: formatPhone(telefonoRaw),
       creado: new Date().toISOString(),
     };
 

@@ -15,6 +15,12 @@ function App() {
     return () => clearTimeout(timeout);
   }, []);
 
+  useEffect(() => {
+    if (!isLoading) {
+      setOpenFormulario(true);
+    }
+  }, [isLoading]);
+
   return (
     <>
       {isLoading ? (
