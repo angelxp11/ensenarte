@@ -113,13 +113,17 @@ const Formulario = ({ openForm = false, onClose = () => {} }) => {
         setError('No se pudo guardar en la nube. Intenta nuevamente.');
       });
 
-    // Mensaje de éxito
-    setSuccess('Gracias por tu interés. Datos guardados en INTERESADOS (' + docId + ').');
+    // Mensaje de éxito y cierre automático en 2 segundos
+    setSuccess('Gracias por tu interés. En breves te contactaremos.');
     setNombre('');
     setCorreo('');
     setTelefono('');
 
-    onClose();
+    setTimeout(() => {
+      setOpen(false);
+      onClose();
+      setSuccess('');
+    }, 2000);
 
     /*
       Si quieres guardar en Firestore, cambia la parte anterior por algo así:
