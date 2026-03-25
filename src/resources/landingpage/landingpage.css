@@ -1,806 +1,256 @@
-@import '../colors/color.css';
-
-html, body {
-  margin: 0;
-  padding: 0;
-  background: var(--bg-color);
-  color: var(--text-color);
-  min-height: 100%;
+:root {
+  --bg-color: #223a44;
 }
 
-body {
-  background: var(--bg-color);
-}
-
-/* Estilos de la barra de desplazamiento */
-::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--bg-color);
-  border-radius: 6px;
-  border: 3px solid rgba(255, 255, 255, 0.05);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--deco-1);
-}
-
-/* Firefox */
-* {
-  scrollbar-color: var(--bg-color) rgba(255, 255, 255, 0.05);
-  scrollbar-width: thin;
-}
-
-/* Animación de entrada para imagen - Carrusel horizontal */
-@keyframes imageEnter {
-  0% {
-    opacity: 1;
-    transform: translateX(100%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Animación de salida para imagen - Carrusel horizontal */
-@keyframes imageExit {
-  0% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(-100%);
-  }
-}
-
-/* Animación de aparición de imagen - deslizamiento */
-@keyframes imageShow {
-  from {
-    opacity: 0;
-    transform: translateX(100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Animación de desaparición de imagen - deslizamiento */
-@keyframes imageHide {
-  from {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(-100%);
-  }
-}
-
-/* Animaciones de entrada y salida */
-@keyframes slideEnter {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideExit {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideOut {
-  from {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-}
-
-/* Animación tipo cinta */
-@keyframes ribbonEnter {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes ribbonExit {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-/* Animación de contenido */
-@keyframes contentFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes contentFadeOut {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-}
-
-/* Animación de entrada para título - Más dramática */
-@keyframes titleEnter {
-  0% {
-    opacity: 0;
-    transform: translateY(50px) scaleY(0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scaleY(1);
-  }
-}
-
-/* Animación de salida para título */
-@keyframes titleExit {
-  0% {
-    opacity: 1;
-    transform: translateY(0) scaleY(1);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-50px) scaleY(0.8);
-  }
-}
-
-/* Animación de entrada para texto */
-@keyframes textEnter {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Animación de salida para texto */
-@keyframes textExit {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-40px);
-  }
-}
-
-/* Animación de entrada para botón */
-@keyframes buttonEnter {
-  0% {
-    opacity: 0;
-    transform: scale(0.7) translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-/* Animación de salida para botón */
-@keyframes buttonExit {
-  0% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0.7) translateY(-30px);
-  }
-}
-
-/* Efecto entre secciones */
-@keyframes sectionFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.section-animated {
-  animation: sectionFadeIn 0.85s ease both;
-}
-
-/* Contenedor principal del landingpage */
+/* Slider principal sin espacios entre fotos */
 .landingpage-container {
   width: 100%;
-  padding-top: 0; /* Sin padding, pegado al navbar */
-  background: linear-gradient(135deg, rgba(34, 58, 68, 0.1) 0%, rgba(10, 111, 122, 0.05) 100%);
-  min-height: auto;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  margin-top: 0; /* Imagen ocupa desde arriba */
-  animation: sectionFadeIn 0.85s ease both;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  background: var(--bg-color);
 }
 
 .landingpage-wrapper {
+  position: relative;
   width: 100%;
-  max-width: 100%;
-  padding: 0;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 70vh;
+  min-height: 70vh;
+  max-height: 100vh;
 }
 
-/* Carrusel de imágenes */
 .landingpage-carousel {
   position: relative;
   width: 100%;
-  min-height: 320px;
-  height: auto;
-  background: linear-gradient(135deg, rgba(34, 58, 68, 0.3) 0%, rgba(10, 111, 122, 0.2) 100%);
-  border-radius: 0;
+  height: 100%;
+  max-height: 100%;
   overflow: hidden;
-  box-shadow: none;
-  aspect-ratio: 16 / 8;
-  max-width: none;
-  margin: 0;
-  border: none;
 }
 
-/* Contenedor de slides - no se desplaza */
 .landingpage-slides {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
   display: flex;
-  align-items: stretch;
-  transition: none;
-}
-
-/* Slide individual - superpuesto */
-.landingpage-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  opacity: 0;
-  transition: opacity 0.8s ease-out;
+  transition: transform 0.8s ease;
 }
 
-.landingpage-slide-active {
-  z-index: 3;
-  opacity: 1;
-  transition: opacity 0s ease-out;
-}
-
-.landingpage-slide-next {
-  z-index: 2;
-}
-
-.landingpage-slide-prev {
-  z-index: 1;
+.landingpage-slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  min-height: 70vh;
+  max-height: 100vh;
 }
 
 .landingpage-slide img {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
-  min-width: 100%;
-  min-height: 100%;
   object-fit: cover;
-  object-position: center;
   display: block;
-  opacity: 1;
-  animation: imageShow 0.5s ease-out forwards;
 }
 
-/* iOS Safari: forzar recálculo correcto del tamaño dentro de aspect-ratio */
-@supports (-webkit-overflow-scrolling: touch) {
-  .landingpage-slide img {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  /* 🔥 FIX iOS REAL */
-  max-width: none;
-  max-height: none;
-}
-}
-
-.landingpage-slide-active img {
-  animation: imageShow 0.5s ease-out forwards;
-}
-
-.landingpage-slide-exiting img {
-  animation: imageHide 0.8s ease-out forwards;
-}
-
-.landingpage-slide-incoming {
-  z-index: 4;
-  opacity: 1;
-  animation: slideIn 0.8s ease both;
-}
-
-.landingpage-slide-exiting {
-  z-index: 5;
-  opacity: 1;
-  animation: slideOut 0.8s ease both;
-}
-
-/* Contenedor de contenido del slide */
 .landingpage-slide-content {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
+  z-index: 5;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-  z-index: 5;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.2) 100%);
   padding: 2rem;
-  box-sizing: border-box;
-  pointer-events: auto;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.55));
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Contenido activo con animación de entrada */
-.landingpage-content-active {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-  pointer-events: auto;
+.landingpage-slide-content:not(.landingpage-content-active) {
+  opacity: 0.8;
 }
 
-/* Título del slide */
-.landingpage-slide-title {
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: var(--deco-1);
-  margin: 0 0 1rem 0;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-  letter-spacing: 2px;
+.landingpage-slide-title,
+.landingpage-slide-description,
+.landingpage-slide-button {
   opacity: 0;
-  transform: translateY(50px) scaleY(0.8);
-  transition: all 0.8s ease;
+  transform: translateY(8px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-.landingpage-slide-title.landingpage-title-active {
-  opacity: 1;
-  transform: translateY(0) scaleY(1);
-  animation: titleEnter 0.8s ease 0.5s both;
-}
-
-.landingpage-slide-title.landingpage-title-exiting {
-  animation: titleExit 0.8s ease forwards;
-}
-
-/* Descripción del slide */
-.landingpage-slide-description {
-  font-size: 1.3rem;
-  color: rgba(255, 255, 255, 0.95);
-  margin: 0 0 2rem 0;
-  max-width: 600px;
-  line-height: 1.6;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease 0.2s;
-}
-
-.landingpage-slide-description.landingpage-description-active {
+.landingpage-title-active,
+.landingpage-description-active,
+.landingpage-button-active {
   opacity: 1;
   transform: translateY(0);
-  animation: textEnter 0.8s ease 0.6s both;
 }
 
-.landingpage-slide-description.landingpage-description-exiting {
-  animation: textExit 0.8s ease forwards;
+.landingpage-slide-title {
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  margin: 0 0 0.6rem;
+  line-height: 1.1;
 }
 
-/* Botón del slide */
+.landingpage-slide-description {
+  font-size: clamp(1rem, 3vw, 1.35rem);
+  max-width: 55ch;
+  margin: 0 0 1rem;
+}
+
 .landingpage-slide-button {
-  display: inline-block;
-  padding: 0.95rem 2.5rem;
-  background: var(--deco-1);
-  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
   text-decoration: none;
+  font-weight: 700;
+  padding: 0.9rem 1.3rem;
   border-radius: 50px;
-  font-size: 1.1rem;
-  font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 25px rgba(83, 192, 225, 0.4);
-  white-space: nowrap;
-  border: 2px solid var(--deco-1);
-  opacity: 0;
-  transform: scale(0.7) translateY(30px);
-  -webkit-transition: all 0.3s ease 0.4s;
-  transition: all 0.3s ease 0.4s;
 }
 
-.landingpage-slide-button.landingpage-button-active {
-  opacity: 1;
-  transform: scale(1) translateY(0);
-  animation: buttonEnter 0.8s ease 0.7s both;
+.landingpage-slide-button:hover,
+.landingpage-slide-button:focus {
+  background: rgba(255, 255, 255, 0.52);
+  color: #111;
 }
 
-.landingpage-slide-button.landingpage-button-exiting {
-  animation: buttonExit 0.8s ease forwards;
-}
-
-.landingpage-slide-button:hover {
-  background: transparent;
-  color: var(--deco-1);
-  transform: scale(1.05);
-  box-shadow: 0 12px 35px rgba(83, 192, 225, 0.6);
-}
-
-/* Controles de navegación */
 .landingpage-control {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 10;
-  background: rgba(83, 192, 225, 0.3);
-  border: 2px solid var(--deco-1);
-  color: var(--text-color);
-  width: 50px;
-  height: 50px;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: none;
   border-radius: 50%;
-  font-size: 24px;
-  cursor: pointer;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
   display: flex;
-  align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(8px);
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s ease;
 }
 
-.landingpage-control:hover {
-  background: rgba(83, 192, 225, 0.6);
-  transform: translateY(-50%) scale(1.1);
-  box-shadow: 0 0 20px rgba(83, 192, 225, 0.5);
+.landingpage-control:hover,
+.landingpage-control:focus {
+  background: rgba(0, 0, 0, 0.66);
 }
 
-/* Control anterior */
 .landingpage-control-prev {
-  left: 1.5rem;
+  left: 1rem;
 }
 
-/* Control siguiente */
 .landingpage-control-next {
-  right: 1.5rem;
+  right: 1rem;
 }
 
-/* Indicadores de slides */
 .landingpage-indicators {
   position: absolute;
-  bottom: 1.5rem;
   left: 50%;
+  bottom: 1rem;
   transform: translateX(-50%);
   display: flex;
-  gap: 0.75rem;
+  gap: 0.5rem;
   z-index: 10;
 }
 
 .landingpage-indicator {
-  width: 12px;
-  height: 12px;
+  width: 0.75rem;
+  height: 0.75rem;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
-  border: 2px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.3);
   cursor: pointer;
-  transition: all 0.3s ease;
-  padding: 0;
-}
-
-.landingpage-indicator:hover {
-  background: rgba(255, 255, 255, 0.6);
-  transform: scale(1.2);
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .landingpage-indicator-active {
-  background: var(--deco-1);
-  border-color: var(--deco-3);
-  width: 32px;
-  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.95);
+  transform: scale(1.15);
 }
 
-/* Mensaje vacío */
-.landingpage-empty-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: var(--text-color);
-  width: 90%;
-  z-index: 2;
-}
-
-.landingpage-empty-icon {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-}
-
-.landingpage-empty-title {
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin: 0.5rem 0;
-  color: var(--deco-1);
-}
-
-.landingpage-empty-text {
-  font-size: 1rem;
-  color: var(--text-color);
-  margin: 0.5rem 0;
-}
-
-.landingpage-empty-hint {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
-  margin-top: 1rem;
-  font-style: italic;
-}
-
-/* Responsive - Tablets y pantallas medianas */
 @media (max-width: 1024px) {
-  .landingpage-container {
-    margin-top: 0;
-  }
-
   .landingpage-wrapper {
-    padding: 0;
+    height: 60vh;
+    min-height: 60vh;
   }
 
   .landingpage-carousel {
-    border-radius: 0;
+    height: 100%;
   }
 
-  .landingpage-slide-title {
-    font-size: 2.5rem;
+  .landingpage-slide {
+    min-height: 60vh;
   }
 
-  .landingpage-slide-description {
-    font-size: 1.1rem;
-    max-width: 500px;
-  }
-
-  .landingpage-slide-button {
-    padding: 0.85rem 2rem;
-    font-size: 1rem;
+  .landingpage-slide-content {
+    padding: 1.25rem;
   }
 
   .landingpage-control {
-    width: 45px;
-    height: 45px;
-    font-size: 20px;
-  }
-
-  .landingpage-control-prev {
-    left: 1rem;
-  }
-
-  .landingpage-control-next {
-    right: 1rem;
+    width: 2rem;
+    height: 2rem;
   }
 }
 
-/* Responsive - Dispositivos pequeños (portrait) */
 @media (max-width: 768px) {
-  .landingpage-container {
-    margin-top: 0;
-    min-height: auto;
-  }
-
   .landingpage-wrapper {
-    padding: 0;
+    height: 50vh;
+    min-height: 50vh;
   }
 
   .landingpage-carousel {
-    border-radius: 0;
-    aspect-ratio: 16 / 4;
-    min-height: 300px;
+    height: 100%;
+  }
+
+  .landingpage-slide {
+    min-height: 50vh;
   }
 
   .landingpage-slide-title {
-    font-size: 1.8rem;
-    margin-bottom: 0.75rem;
+    font-size: clamp(1.4rem, 6vw, 2.2rem);
   }
 
   .landingpage-slide-description {
-    font-size: 0.95rem;
+    font-size: clamp(0.9rem, 3.6vw, 1rem);
     max-width: 100%;
-    margin-bottom: 1.5rem;
   }
 
+  .landingpage-slide-content {
+    padding: 1rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .landingpage-slide-description,
   .landingpage-slide-button {
-    padding: 0.75rem 1.75rem;
-    font-size: 0.95rem;
-  }
-
-  .landingpage-control {
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
-  }
-
-  .landingpage-control-prev {
-    left: 0.75rem;
-  }
-
-  .landingpage-control-next {
-    right: 0.75rem;
-  }
-
-  .landingpage-indicators {
-    bottom: 1rem;
-    gap: 0.5rem;
-  }
-
-  .landingpage-indicator {
-    width: 10px;
-    height: 10px;
-  }
-
-  .landingpage-indicator-active {
-    width: 28px;
-  }
-}
-
-/* Responsive - Dispositivos muy pequeños */
-@media (max-width: 480px) {
-  .landingpage-container {
-    margin-top: 0;
-  }
-
-  .landingpage-wrapper {
-    padding: 0;
-  }
-
-  .landingpage-carousel {
-    border-radius: 0;
-    min-height: 240px;
-  }
-
-  .landingpage-slide-title {
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .landingpage-slide-description {
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
-  }
-
-  .landingpage-slide-button {
-    padding: 0.65rem 1.5rem;
-    font-size: 0.85rem;
-  }
-
-  .landingpage-control {
-    width: 36px;
-    height: 36px;
-    font-size: 16px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .landingpage-control-prev {
     left: 0.5rem;
   }
-
   .landingpage-control-next {
     right: 0.5rem;
   }
-
-  .landingpage-indicators {
-    bottom: 0.75rem;
-    gap: 0.4rem;
-  }
-
-  .landingpage-indicator {
-    width: 8px;
-    height: 8px;
-  }
-
-  .landingpage-indicator-active {
-    width: 24px;
-  }
 }
 
-/* Portrait alto > ancho en dispositivos móviles */
-@media (orientation: portrait) and (max-width: 768px) {
-  .landingpage-carousel {
-    min-height: 520px;
-    aspect-ratio: 16 / 6;
-  }
-
-  .landingpage-slide-content {
-    padding: 3rem 1.2rem;
-  }
-
-  .landingpage-slide-title {
-    font-size: 2.1rem;
-  }
-
-  .landingpage-slide-description {
-    font-size: 1rem;
-    max-width: 95%;
-    line-height: 1.5;
-  }
-}
-
-/* Landscape - modo horizontal */
-@media (orientation: landscape) and (max-height: 600px) {
-  .landingpage-container {
-    margin-top: 0;
-    min-height: auto;
+@media (max-width: 540px) {
+  .landingpage-wrapper {
+    height: 45vh;
+    min-height: 45vh;
   }
 
   .landingpage-carousel {
-    aspect-ratio: 16 / 4;
-    min-height: 300px;
+    height: 100%;
+  }
+
+  .landingpage-slide {
+    min-height: 45vh;
+  }
+
+  .landingpage-slide-button {
+    padding: 0.7rem 1rem;
+    font-size: 0.88rem;
   }
 }

@@ -1,7 +1,7 @@
 /* Sección de ventajas */
 .advantages-section {
   width: 100%;
-  background: linear-gradient(135deg, rgba(34, 58, 68, 0.2) 0%, rgba(10, 111, 122, 0.1) 100%);
+  background: var(--bg-color);
   padding: 4rem 2rem;
   box-sizing: border-box;
 }

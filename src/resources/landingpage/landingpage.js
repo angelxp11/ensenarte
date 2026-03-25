@@ -11,8 +11,6 @@ import Footer from '../footer/footer';
 
 function LandingPage({ openFormulario, onSetOpenFormulario }) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [exitingSlide, setExitingSlide] = useState(null);
-  const [nextSlide, setNextSlide] = useState(null);
 
   // Array de imágenes con contenido - Reemplaza con tus imágenes de 1920x960 px
   const slides = [
@@ -36,46 +34,22 @@ function LandingPage({ openFormulario, onSetOpenFormulario }) {
   useEffect(() => {
     if (slides.length <= 1) return;
 
-    let currentIndex = 0;
+    const interval = setInterval(() => {
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
+    }, 4200);
 
-    const runCycle = () => {
-      setCurrentSlide(currentIndex);
-      setNextSlide(null);
-      setExitingSlide(null);
-
-      const nextIndex = (currentIndex + 1) % slides.length;
-
-      setTimeout(() => {
-        // Animar salida del actual y entrada del siguiente
-        setExitingSlide(currentIndex);
-        setNextSlide(nextIndex);
-      }, 3300);
-
-      setTimeout(() => {
-        // Cambio definitivo a la siguiente slide
-        currentIndex = nextIndex;
-        setCurrentSlide(nextIndex);
-        setNextSlide(null);
-        setExitingSlide(null);
-        runCycle();
-      }, 4100);
-    };
-
-    runCycle();
+    return () => clearInterval(interval);
   }, [slides.length]);
 
   const handleNextSlide = () => {
-    setExitingSlide(null);
     setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
   };
 
   const handlePrevSlide = () => {
-    setExitingSlide(null);
     setCurrentSlide((prevSlide) => (prevSlide - 1 + slides.length) % slides.length);
   };
 
   const goToSlide = (index) => {
-    setExitingSlide(null);
     setCurrentSlide(index);
   };
 
@@ -116,42 +90,41 @@ function LandingPage({ openFormulario, onSetOpenFormulario }) {
         <div className="landingpage-wrapper">
           {/* Carrusel de imágenes */}
           <div className="landingpage-carousel">
-            <div 
-              className="landingpage-slides"
-            >
-              {slides.map((slide, index) => (
-                <div
-                  key={index}
-                  className={`landingpage-slide ${
-                    index === currentSlide ? 'landingpage-slide-active' : ''
-                  } ${index === exitingSlide ? 'landingpage-slide-exiting' : ''} ${index === nextSlide ? 'landingpage-slide-incoming' : ''}`}
-                >
-                  <img 
-                    src={slide.image} 
-                    alt={slide.title} 
-                    loading="lazy"
-                  />
-                  
-                  {/* Contenido superpuesto */}
-                  <div className="landingpage-slide-content">
-                    <h2 className={`landingpage-slide-title ${index === currentSlide ? 'landingpage-title-active' : ''} ${index === exitingSlide ? 'landingpage-title-exiting' : ''}`}>{slide.title}</h2>
-                    <p className={`landingpage-slide-description ${index === currentSlide ? 'landingpage-description-active' : ''} ${index === exitingSlide ? 'landingpage-description-exiting' : ''}`}>{slide.description}</p>
-                    <a
-                      href={slide.buttonLink}
-                      className={`landingpage-slide-button ${index === currentSlide ? 'landingpage-button-active' : ''} ${index === exitingSlide ? 'landingpage-button-exiting' : ''}`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        if (slide.buttonLink && slide.buttonLink.startsWith('#')) {
-                          scrollToSection(slide.buttonLink.slice(1));
-                        }
-                      }}
-                    >
-                      {slide.buttonText}
-                    </a>
-                  </div>
+            <div
+            className="landingpage-slides"
+            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+          >
+            {slides.map((slide, index) => (
+              <div
+                key={index}
+                className="landingpage-slide"
+              >
+                <img
+                  src={slide.image}
+                  alt={slide.title}
+                  loading="lazy"
+                />
+
+                {/* Contenido superpuesto */}
+                <div className={`landingpage-slide-content ${index === currentSlide ? 'landingpage-content-active' : ''}`}>
+                  <h2 className={`landingpage-slide-title ${index === currentSlide ? 'landingpage-title-active' : ''}`}>{slide.title}</h2>
+                  <p className={`landingpage-slide-description ${index === currentSlide ? 'landingpage-description-active' : ''}`}>{slide.description}</p>
+                  <a
+                    href={slide.buttonLink}
+                    className={`landingpage-slide-button ${index === currentSlide ? 'landingpage-button-active' : ''}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (slide.buttonLink && slide.buttonLink.startsWith('#')) {
+                        scrollToSection(slide.buttonLink.slice(1));
+                      }
+                    }}
+                  >
+                    {slide.buttonText}
+                  </a>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
+          </div>
 
             {/* Controles del carrusel - solo si hay múltiples slides */}
             {slides.length > 1 && (

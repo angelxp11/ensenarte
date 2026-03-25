@@ -1,4 +1,4 @@
-.questions-section {background: linear-gradient(135deg, rgba(34, 58, 68, 0.08) 0%, rgba(10, 111, 122, 0.04) 100%);padding: 3rem 2rem;}
+.questions-section {background: var(--bg-color); padding: 3rem 2rem;}
 .questions-container {max-width: 980px;margin: 0 auto;}
 .questions-container h2 {font-size: 2.2rem;text-align: center;color: var(--deco-1);margin-bottom: 0.5rem;}
 .questions-container p {text-align: center;color: var(--text-color);opacity: 0.88;margin-bottom: 1.8rem;}
