@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ensenarte/static/css/main.38c1b764.css",
-    "main.js": "/ensenarte/static/js/main.b5b73c06.js",
+    "main.js": "/ensenarte/static/js/main.afaf3fb6.js",
     "static/js/453.7495feb5.chunk.js": "/ensenarte/static/js/453.7495feb5.chunk.js",
     "static/media/imagenfondo1.jpg": "/ensenarte/static/media/imagenfondo1.2a262db2a3eba4daafd8.jpg",
     "static/media/imagenfondo2.jpg": "/ensenarte/static/media/imagenfondo2.59124b3bc6e9ef46e0e8.jpg",
@@ -9,11 +9,11 @@
     "static/media/logosinalto.png": "/ensenarte/static/media/logosinalto.0a8f062ff39e248e765a.png",
     "index.html": "/ensenarte/index.html",
     "main.38c1b764.css.map": "/ensenarte/static/css/main.38c1b764.css.map",
-    "main.b5b73c06.js.map": "/ensenarte/static/js/main.b5b73c06.js.map",
+    "main.afaf3fb6.js.map": "/ensenarte/static/js/main.afaf3fb6.js.map",
     "453.7495feb5.chunk.js.map": "/ensenarte/static/js/453.7495feb5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.38c1b764.css",
-    "static/js/main.b5b73c06.js"
+    "static/js/main.afaf3fb6.js"
   ]
 }
