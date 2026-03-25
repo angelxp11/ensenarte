@@ -137,84 +137,73 @@ const Formulario = ({ openForm = false, onClose = () => {} }) => {
     */
   };
 
+  if (!open) {
+    return null;
+  }
+
   return (
-    <section className="formulario-section" id="informacion">
-      <h2 className="formulario-heading">¿Quieres más información?</h2>
-      <p className="formulario-subtitle">Completa tus datos y nos contactaremos contigo.</p>
+    <div className="formulario-overlay" onClick={() => { setOpen(false); onClose(); }}>
+      <div className="formulario-modal" onClick={(e) => e.stopPropagation()}>
+        <button className="formulario-close-btn" type="button" onClick={() => { setOpen(false); onClose(); }}>
+          ✕
+        </button>
 
-      <button
-        className="formulario-toggle-btn"
-        type="button"
-        onClick={handleToggle}
-      >
-        {open ? 'Cerrar formulario' : 'Obtener más información'}
-      </button>
+        <h3 className="formulario-modal-title">Únete a nuestra nueva comunidad</h3>
+        <p className="formulario-modal-text">Mantente al tanto de nuestras novedades y ofertas especiales.</p>
 
-      {open && (
-        <div className="formulario-overlay" onClick={() => { setOpen(false); onClose(); }}>
-          <div className="formulario-modal" onClick={(e) => e.stopPropagation()}>
-            <button className="formulario-close-btn" type="button" onClick={() => { setOpen(false); onClose(); }}>
-              ✕
-            </button>
+        <form className="formulario-card" onSubmit={submitHandler} noValidate>
+          <label className="formulario-label">
+            Nombre completo *
+            <input
+              className="formulario-input"
+              type="text"
+              value={nombre}
+              onChange={onNombreChange}
+              placeholder="JUAN PEREZ"
+              autoComplete="name"
+              required
+            />
+          </label>
 
-            <h3 className="formulario-modal-title">Únete a nuestra nueva comunidad</h3>
-            <p className="formulario-modal-text">Mantente al tanto de nuestras novedades y ofertas especiales.</p>
+          <label className="formulario-label">
+            Correo electrónico
+            <input
+              className="formulario-input"
+              type="email"
+              value={correo}
+              onChange={onCorreoChange}
+              placeholder="correo@dominio.com"
+              autoComplete="email"
+            />
+          </label>
 
-            <form className="formulario-card" onSubmit={submitHandler} noValidate>
-              <label className="formulario-label">
-                Nombre completo *
-                <input
-                  className="formulario-input"
-                  type="text"
-                  value={nombre}
-                  onChange={onNombreChange}
-                  placeholder="JUAN PEREZ"
-                  autoComplete="name"
-                  required
-                />
-              </label>
+          <label className="formulario-label">
+            Teléfono (10 dígitos) *
+            <input
+              className="formulario-input"
+              type="text"
+              value={formatPhone(telefono)}
+              onChange={onTelefonoChange}
+              placeholder="123 456 78 90"
+              inputMode="numeric"
+              maxLength={13}
+              required
+            />
+          </label>
 
-              <label className="formulario-label">
-                Correo electrónico
-                <input
-                  className="formulario-input"
-                  type="email"
-                  value={correo}
-                  onChange={onCorreoChange}
-                  placeholder="correo@dominio.com"
-                  autoComplete="email"
-                />
-              </label>
+          {error && <p className="formulario-error">{error}</p>}
+          {success && <p className="formulario-success">{success}</p>}
 
-              <label className="formulario-label">
-                Teléfono (10 dígitos) *
-                <input
-                  className="formulario-input"
-                  type="text"
-                  value={formatPhone(telefono)}
-                  onChange={onTelefonoChange}
-                  placeholder="123 456 78 90"
-                  inputMode="numeric"
-                  maxLength={13}
-                  required
-                />
-              </label>
+          <button type="submit" className="formulario-submit-btn">Enviar interés</button>
+        </form>
 
-              {error && <p className="formulario-error">{error}</p>}
-              {success && <p className="formulario-success">{success}</p>}
-
-              <button type="submit" className="formulario-submit-btn">Enviar interés</button>
-            </form>
-
-            <div className="formulario-extra">
-              <p>¿Ya formas parte? <strong>No te lo pierdas</strong>.</p>
-              <a className="formulario-extra-link" href="https://ensenarteonline.com.co" target="_blank" rel="noreferrer">Visita nuestra comunidad</a>
-            </div>
-
-          </div>
+        <div className="formulario-extra">
+          <p>¿Ya formas parte? <strong>No te lo pierdas</strong>.</p>
+          <a className="formulario-extra-link" href="https://ensenarteonline.com.co" target="_blank" rel="noreferrer">Visita nuestra comunidad</a>
         </div>
-      )}
-    </section>
+
+      </div>
+    </div>
   );
 };
 
