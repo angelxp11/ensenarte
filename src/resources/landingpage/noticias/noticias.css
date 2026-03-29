@@ -3,7 +3,23 @@
 ========================= */
 .news-section {
   padding: 3rem 2rem;
-  background: linear-gradient(180deg, #1b2e35, var(--bg-color));
+  background: var(--bg-color);
+  background-image: url('../../images/image.png');
+  background-size: 500px 500px;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  position: relative;
+  animation: scroll-mosaic 30s linear infinite;
+}
+
+@keyframes scroll-mosaic {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 500px 0;
+  }
+
 }
 
 /* =========================
@@ -18,7 +34,7 @@
 .news-container h2 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
-  color: var(--deco-1);
+  color: var(--title-color);
 }
 
 .news-container p {

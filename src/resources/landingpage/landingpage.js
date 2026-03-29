@@ -16,8 +16,8 @@ function LandingPage({ openFormulario, onSetOpenFormulario }) {
   const slides = [
     {
       image: imagenfondo1,
-      title: 'Aprende A',
-      description: 'Descubre técnicas innovadoras y desarrolla tu creatividad con nuestros cursos especializados en arte.',
+      title: 'Aprende EnseñArte',
+      description: 'Descubre técnicas innovadoras y desarrolla tu creatividad con nuestros cursos especializados.',
       buttonText: 'Explorar Cursos',
       buttonLink: '#cursos'
     },
@@ -36,7 +36,7 @@ function LandingPage({ openFormulario, onSetOpenFormulario }) {
 
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    }, 4200);
+    }, 30000);
 
     return () => clearInterval(interval);
   }, [slides.length]);

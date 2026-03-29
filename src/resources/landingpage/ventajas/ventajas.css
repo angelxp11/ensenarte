@@ -2,8 +2,24 @@
 .advantages-section {
   width: 100%;
   background: var(--bg-color);
+  background-image: url('../../images/image.png');
+  background-size: 500px 500px;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  position: relative;
   padding: 4rem 2rem;
   box-sizing: border-box;
+  animation: scroll-mosaic 30s linear infinite;
+}
+
+@keyframes scroll-mosaic {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 500px 0;
+  }
+
 }
 
 .advantages-container {
@@ -15,7 +31,7 @@
   text-align: center;
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--);
+  color: var(--title-color);
   margin-bottom: 3rem;
 }
 
@@ -26,7 +42,9 @@
 }
 
 .advantage-card {
-  background: rgba(83, 192, 225, 0.08);
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
   border: 2px solid var(--deco-1);
   border-radius: 16px;
   overflow: hidden;

@@ -22,10 +22,22 @@
 }
 
 .navbar-logo-wrapper {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
   text-decoration: none;
+}
+
+/* Fondo blanco difuminado detrás del logo */
+.navbar-logo-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -10px; /* controla qué tan grande es el halo */
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.4) 40%, transparent 70%);
+  filter: blur(12px);
+  z-index: -1;
+  border-radius: 50%;
 }
 
 .navbar-logo {
@@ -35,10 +47,9 @@
   min-height: 50px;
   object-fit: contain;
   flex-shrink: 0;
-  filter: drop-shadow(0 0 22px rgba(255, 255, 255, 0.9));
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
   transition: transform 0.2s ease;
 }
-
 .navbar-logo:hover {
   transform: scale(1.05);
 }
