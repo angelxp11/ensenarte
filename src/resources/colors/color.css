@@ -1,8 +1,20 @@
 :root {
+  /* Base */
   --text-color: #ffffff;
   --bg-color: #223a44;
+
+  /* Bordes y acentos */
   --border-color: #0ea4b5;
   --deco-1: #53c0e1;
   --deco-2: #0a6f7a;
   --deco-3: #2fb9d5;
+
+  /* 🎯 Tipografía jerárquica */
+  --title-color: #ffffff;          /* títulos principales */
+  --subtitle-color: #bfe9f2;       /* subtítulos (más suave) */
+  --description-color: #9fbac1;    /* texto descriptivo */
+  --muted-text: #6f8f96;           /* texto secundario (placeholder, etc.) */
+
+  /* Extra (pro) */
+  --highlight-text: #53c0e1;       /* para palabras clave */
 }

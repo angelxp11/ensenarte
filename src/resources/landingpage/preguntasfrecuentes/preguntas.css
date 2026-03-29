@@ -1,8 +1,105 @@
-.questions-section {background: var(--bg-color); padding: 3rem 2rem;}
-.questions-container {max-width: 980px;margin: 0 auto;}
-.questions-container h2 {font-size: 2.2rem;text-align: center;color: var(--deco-1);margin-bottom: 0.5rem;}
-.questions-container p {text-align: center;color: var(--text-color);opacity: 0.88;margin-bottom: 1.8rem;}
-.questions-list {display: grid; gap: 0.8rem;}
-.question-item {border: 1px solid rgba(255,255,255,0.18);border-radius: 10px;background: rgba(255,255,255,0.05);}
-.question-trigger {width: 100%;display: flex;justify-content: space-between;align-items: center;padding: 0.95rem 1rem;border:none;background:none;color:var(--text-color);font-size:1rem;font-weight:700;cursor:pointer;}
-.question-answer {padding:0 1rem 1rem;line-height:1.5;color:var(--text-color);}
+@import '../../colors/color.css';
+
+/* Fondo general con degradado animado */
+.questions-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  background: var(--bg-color);
+}
+
+/* Animación fondo */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.questions-container {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.questions-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.questions-container p {
+  opacity: 0.8;
+  margin-bottom: 40px;
+}
+
+/* Lista */
+.questions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Card estilo glass */
+.question-item {
+  backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: 0.3s ease;
+  border: 1px solid var(--border-color);
+}
+
+.question-item:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Botón pregunta */
+.question-trigger {
+  width: 100%;
+  padding: 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Icono + / - animado */
+.question-trigger span {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.question-trigger:hover span {
+  transform: rotate(180deg);
+}
+
+/* Respuesta animada */
+.question-answer {
+  padding: 0 20px 20px 20px;
+  font-size: 0.95rem;
+  color: var(--text-color);
+  opacity: 0.8;
+  line-height: 1.6;
+
+  animation: fadeSlide 0.4s ease;
+}
+
+/* Animación respuesta */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

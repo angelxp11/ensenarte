@@ -7,7 +7,7 @@ function Ventajas() {
     {
       icon: FaSchool,
       title: 'Convalidación Primaria',
-      subtitle: ['Convalidación Primaria', 'Convalidación Primaria', 'Convalidación Primaria'],
+      subtitle: [],
       description: 'Educación en solo 6 meses. Flexible, personalizada y a tu ritmo.',
       image: require('../../images/imagenfondo1.jpg'),
       showButton: false
@@ -15,15 +15,15 @@ function Ventajas() {
     {
       icon: FaGraduationCap,
       title: 'Convalidación Bachillerato',
-      subtitle: ['Convalidación Bachillerato', 'Convalidación Bachillerato', 'Convalidación Bachillerato'],
-      description: 'Educación en solo 6 meses. Flexible, personalizada y a tu ritmo.',
+      subtitle: [],
+      description: 'Obtén tu título en solo 6 meses con una educación flexible, personalizada y a tu ritmo.',
       image: require('../../images/imagenfondo2.jpg'),
       showButton: false
     },
     {
       icon: FaGlobe,
       title: 'Cursos de Idiomas',
-      subtitle: ['Cursos de Idiomas', 'Cursos de Idiomas', 'Cursos de Idiomas'],
+      subtitle: [],
       description: 'Cursos de idiomas con certificación internacional. Desde nivel básico hasta avanzado.',
       image: require('../../images/logonobackground.png'),
       showButton: true,
@@ -32,7 +32,7 @@ function Ventajas() {
     {
       icon: FaTools,
       title: 'Cursos libres técnicos laborales',
-      subtitle: ['Cursos libres enfocados en técnicos laborales', 'Cursos libres enfocados en técnicos laborales', 'Cursos libres enfocados en técnicos laborales'],
+      subtitle: [],
       description: 'Cursos Libres con Certificación. Formación complementaria en áreas clave de los programas.',
       image: require('../../images/logosinalto.png'),
       showButton: true,
@@ -41,7 +41,7 @@ function Ventajas() {
     {
       icon: FaClipboardCheck,
       title: 'Cursos Libres',
-      subtitle: ['Cursos Libres', 'Cursos Libres', 'Cursos Libres'],
+      subtitle: [],
       description: 'Excel Básico, Excel Intermedio, Excel Avanzado, Pre-icfes virtual y presencial.',
       image: require('../../images/imagenfondo1.jpg'),
       showButton: true,

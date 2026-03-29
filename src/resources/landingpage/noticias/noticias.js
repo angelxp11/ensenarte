@@ -11,7 +11,7 @@ function Noticias() {
   return (
     <section className="news-section section-animated">
       <div className="news-container">
-        <h2>Noticias</h2>
+        <h2 className="news-title">Noticias</h2>
         <p>Mantente al día con las últimas novedades en formación y oportunidades.</p>
         <div className="news-list">
           {news.map((item, idx) => (

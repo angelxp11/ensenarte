@@ -3,7 +3,79 @@
 .testimonials-container h2 {font-size: 2.2rem; font-weight:700; color: var(--deco-1); text-align:center; margin-bottom:0.5rem;}
 .testimonials-container p {text-align:center; color: var(--text-color); opacity:0.88; margin-bottom:1.5rem;}
 .testimonial-grid {display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 1rem;}
-.testimonial-card {padding: 1rem 1.2rem; border-radius: 14px; background: rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14); box-shadow:0 8px 18px rgba(0,0,0,0.08);}
+.testimonial-card {
+	padding: 1rem 1.2rem;
+	border-radius: 14px;
+	background: rgba(255,255,255,0.08);
+	border: 1px solid rgba(255,255,255,0.14);
+	box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+	position: relative;
+	overflow: hidden;
+	transition: border 0.3s;
+}
+
+.testimonial-card-img {
+	border: 2px solid var(--deco-1) !important;
+	padding: 0 !important;
+	background: none;
+}
+
+.testimonial-card-img img {
+	width: 100%;
+	height: 400px;
+	object-fit: cover;
+	border-radius: 14px;
+	display: block;
+	transition: filter 0.3s;
+}
+
+.testimonial-card-img:hover img,
+.testimonial-card-img:active img {
+	filter: brightness(0.5);
+}
+
+.testimonial-card-img .testimonial-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	color: var(--text-color);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	opacity: 0;
+	transition: opacity 0.3s, background 0.3s;
+	pointer-events: none;
+	padding: 1rem;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+.testimonial-card-img .testimonial-overlay.active {
+	background: rgba(20,30,40,0.7);
+	opacity: 1;
+}
+
+.quote-wrapper {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.testimonial-info {
+	text-align: center;
+}
+
+.testimonial-card-img:hover .testimonial-overlay,
+.testimonial-card-img:active .testimonial-overlay {
+	opacity: 1;
+	pointer-events: auto;
+}
 .testimonial-quote {font-size:1rem; line-height:1.6; color: var(--text-color); margin-bottom:0.8rem;}
 .testimonial-card h4 {margin:0; color: var(--deco-1); font-size:1.05rem;}
 .testimonial-role {color: rgba(255,255,255,0.7); font-size:0.9rem; margin: 0.2rem 0 0;}
